@@ -2,7 +2,7 @@
 NAME: Eric Beaver
 weighted_average.py
 
-Problem: calculate the weighted average from text files
+Problem: Calculate the weighted average from text files
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
