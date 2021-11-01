@@ -22,7 +22,6 @@ def main():
     circle_one.draw(win)
     circle_two.draw(win)
 
-    # while loop here
     k = 1
     x_one = get_random(8)
     y_one = get_random(8)
@@ -45,7 +44,7 @@ def main():
             x_two = x_two * -1
             y_one = y_one * -1
             y_two = y_two * -1
-            win.update()
+        win.update()
         k = 1
         if win.checkMouse():
             k = 101
@@ -73,21 +72,17 @@ def did_collide(ball, ball2):
 
 
 def hit_vertical(ball, win):
-    if ball.getCenter().getY() <= ball.getRadius():
-        win.update()
+    if ball.getCenter().getX() <= ball.getRadius():
         return True
-    if ball.getCenter().getY() >= win.getHeight() - ball.getRadius():
-        win.update()
+    if ball.getCenter().getX() >= win.getWidth() - ball.getRadius():
         return True
     return False
 
 
 def hit_horizontal(ball, win):
-    if ball.getCenter().getX() <= ball.getRadius():
-        win.update()
+    if ball.getCenter().getY() <= ball.getRadius():
         return True
-    if ball.getCenter().getX() >= win.getWidth() - ball.getRadius():
-        win.update()
+    if ball.getCenter().getY() >= win.getHeight() - ball.getRadius():
         return True
     return False
 
