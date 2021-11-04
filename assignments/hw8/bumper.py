@@ -15,6 +15,7 @@ from graphics import GraphWin, Circle, Point, color_rgb, time
 
 def main():
     win = GraphWin("Bumper Cars", 900, 700)
+    win.setBackground(color_rgb(randint(0, 255), randint(0, 255), randint(0, 255)))
     circle_one = Circle(Point(200, 300), 20)
     circle_two = Circle(Point(600, 150), 20)
     circle_one.setFill(get_random_color())
@@ -32,13 +33,13 @@ def main():
         circle_two.move(x_two, y_two)
         time.sleep(.05)
         if hit_horizontal(circle_one, win):
-            x_one = x_one * -1
-        if hit_horizontal(circle_two, win):
-            x_two = x_two * -1
-        if hit_vertical(circle_one, win):
             y_one = y_one * -1
-        if hit_vertical(circle_two, win):
+        if hit_horizontal(circle_two, win):
             y_two = y_two * -1
+        if hit_vertical(circle_one, win):
+            x_one = x_one * -1
+        if hit_vertical(circle_two, win):
+            x_two = x_two * -1
         if did_collide(circle_one, circle_two):
             x_one = x_one * -1
             x_two = x_two * -1
