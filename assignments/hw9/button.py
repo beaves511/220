@@ -7,7 +7,7 @@ Problem: define a button
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
 """
-# from graphics import Rectangle, Text, GraphWin, Point
+from graphics import Text, Point
 
 
 class Button:
@@ -16,14 +16,15 @@ class Button:
     """
     def __init__(self, shape, label):
         self.shape = shape
-        self.text = label
+        self.text = Text(Point(self.shape.getP1().getX() + 40,
+                               self.shape.getP1().getY() + 25), label)
 
     def get_label(self):
         """
         gets the text of a button
         :return self.text:
         """
-        return self.text
+        return self.text.getText()
 
     def get_shape(self):
         """
@@ -50,8 +51,8 @@ class Button:
         self.text.undraw()
 
     def is_clicked(self, point):
-        if self.shape.getP1().getX() <= point.getX() <= self.shape.getP2().getX() and self.shape.getP1().getY() <= \
-                point.getY() <= self.shape.getP2().getY():
+        if self.shape.getP1().getX() <= point.getX() <= self.shape.getP2().getX() \
+                and self.shape.getP1().getY() <= point.getY() <= self.shape.getP2().getY():
             return True
         return False
 
@@ -69,4 +70,4 @@ class Button:
         :param label:
         :return:
         """
-        self.text = label
+        self.text.setText(label)
