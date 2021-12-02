@@ -20,6 +20,10 @@ class SalesForce:
         self.sales_people = []
 
     def add_data(self, file_name):
+        """
+        adds data of employee to list called self.sales_people
+        :param file_name:
+        """
         with open(file_name, 'r') as in_file:
             for line in in_file:
                 parts = line.split(', ')
@@ -30,6 +34,11 @@ class SalesForce:
                 self.sales_people.append(obj)
 
     def quota_report(self, quota):
+        """
+        returns list where each element is a list of name, id, sales, and boolean quota
+        :param quota:
+        :return re_list:
+        """
         re_list = []
         for people in self.sales_people:
             temp_list = [people.get_id(), people.get_name(),
@@ -38,6 +47,10 @@ class SalesForce:
         return re_list
 
     def top_seller(self):
+        """
+        return list of top seller(s)
+        :return max_l:
+        """
         max_l = [self.sales_people[0]]
         max_val = self.sales_people[0].total_sales()
         for people in range(1, len(self.sales_people)):
@@ -51,6 +64,11 @@ class SalesForce:
         return max_l
 
     def individual_sales(self, employee_id):
+        """
+        returns person with given employee id
+        :param employee_id:
+        :return employee:
+        """
         for people in range(len(self.sales_people)):
             if self.sales_people[people].get_id() == employee_id:
                 return self.sales_people[people]
