@@ -1,6 +1,6 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Eric Beaver
+lab13.py
 """
 
 from random import randint
